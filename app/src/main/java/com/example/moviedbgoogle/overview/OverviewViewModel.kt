@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviedbgoogle.network.MovieApi
+import com.example.moviedbgoogle.network.MovieResponse
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
@@ -21,7 +22,8 @@ class OverviewViewModel : ViewModel() {
 
             try{
                 val listResult = MovieApi.retrofitService.getMovies()
-                _status.value = listResult
+                _status.value = "Success: ${listResult.body()?.results?.size} Movies retrieved"
+
             }catch (e: Exception){
                 _status.value = "Failure: ${e.message}"
             }
