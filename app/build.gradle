@@ -52,7 +52,7 @@ dependencies {
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
-// Retrofit with Moshi Converter
+// Retrofit with Scalars Converter
     implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
 
 }
