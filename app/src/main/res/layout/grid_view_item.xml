@@ -7,11 +7,15 @@
         <variable
             name="viewModel"
             type="com.example.moviedbgoogle.overview.OverviewViewModel" />
+
+        <variable
+            name="movie"
+            type="com.example.moviedbgoogle.network.MovieResponse.Movie" />
     </data>
 
     <ImageView
         android:id="@+id/movie_image"
-        app:imageUrl="@{viewModel.movies.imgSrcUrl}"
+        app:imageUrl="@{movie.imgSrcUrl}"
         android:layout_width="wrap_content"
         android:layout_height="170dp"
         android:scaleType="fitXY"

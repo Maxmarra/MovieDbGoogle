@@ -19,12 +19,13 @@ class OverviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //val binding = FragmentOverviewBinding.inflate(inflater)
-
-        val binding = GridViewItemBinding.inflate(inflater)
+        val binding = FragmentOverviewBinding.inflate(inflater)
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        binding.moviesGrid.adapter = MoviesGridAdapter()
+
         return binding.root
     }
 
