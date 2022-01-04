@@ -9,27 +9,33 @@ import com.example.moviedbgoogle.network.MovieResponse
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
+enum class MovieApiStatus { LOADING, ERROR, DONE }
+
 class OverviewViewModel : ViewModel() {
 
-    private val _status = MutableLiveData<String>()
-    val status: LiveData<String> = _status
+
 
     private val _movies = MutableLiveData<List<MovieResponse.Movie>>()
     val movies: LiveData<List<MovieResponse.Movie>> = _movies
+
+    private val _status = MutableLiveData<MovieApiStatus>()
+    val status: LiveData<MovieApiStatus> = _status
 
     init {
         getMoviePhotos()
     }
     private fun getMoviePhotos() {
         viewModelScope.launch {
+            _status.value = MovieApiStatus.LOADING
 
             try{
                 _movies.value = MovieApi.retrofitService.getMovies().body()?.results
-                _status.value = " Success: Movies retrieved"
+                _status.value = MovieApiStatus.DONE
 
 
             }catch (e: Exception){
-                _status.value = "Failure: ${e.message}"
+                _status.value = MovieApiStatus.ERROR
+                _movies.value = listOf()
             }
 
         }
