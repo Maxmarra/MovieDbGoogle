@@ -12,7 +12,6 @@ import com.example.moviedbgoogle.databinding.FragmentOverviewBinding
 
 class OverviewFragment : Fragment() {
 
-
     private val viewModel: OverviewViewModel by viewModels()
 
     override fun onCreateView(
