@@ -23,6 +23,7 @@ fun bindImage(imgView: ImageView,
             error(R.drawable.ic_broken_image)
         }
     }
+
 }
 
 @BindingAdapter("listData")

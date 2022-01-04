@@ -13,8 +13,6 @@ enum class MovieApiStatus { LOADING, ERROR, DONE }
 
 class OverviewViewModel : ViewModel() {
 
-
-
     private val _movies = MutableLiveData<List<MovieResponse.Movie>>()
     val movies: LiveData<List<MovieResponse.Movie>> = _movies
 
