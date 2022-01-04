@@ -1,4 +1,4 @@
 package com.example.moviedbgoogle.network
 
-interface MarsApiService {
+interface MovieApiService {
 }
