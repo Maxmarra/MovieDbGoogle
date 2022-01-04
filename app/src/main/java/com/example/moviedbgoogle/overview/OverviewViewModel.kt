@@ -14,6 +14,9 @@ class OverviewViewModel : ViewModel() {
     private val _status = MutableLiveData<String>()
     val status: LiveData<String> = _status
 
+    private val _movies = MutableLiveData<MovieResponse.Movie>()
+    val movies: LiveData<MovieResponse.Movie> = _movies
+
     init {
         getMoviePhotos()
     }
@@ -21,8 +24,9 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
 
             try{
-                val listResult = MovieApi.retrofitService.getMovies()
-                _status.value = "Success: ${listResult.body()?.results?.size} Movies retrieved"
+                _movies.value = MovieApi.retrofitService.getMovies().body()?.results?.get(0)
+                _status.value = "   First Movie image URL : ${_movies.value!!.imgSrcUrl}"
+
 
             }catch (e: Exception){
                 _status.value = "Failure: ${e.message}"

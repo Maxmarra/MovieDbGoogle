@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.moviedbgoogle.R
 import com.example.moviedbgoogle.databinding.FragmentOverviewBinding
+import com.example.moviedbgoogle.databinding.GridViewItemBinding
 
 class OverviewFragment : Fragment() {
 
@@ -18,7 +19,10 @@ class OverviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentOverviewBinding.inflate(inflater)
+        //val binding = FragmentOverviewBinding.inflate(inflater)
+
+        val binding = GridViewItemBinding.inflate(inflater)
+
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         return binding.root
